@@ -1,1 +1,1 @@
-document.getElementById(mainTitle).innerText = "helloworld";
+//document.getElementById("mainTitle").innerText = "hello world";
