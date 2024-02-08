@@ -54,7 +54,7 @@ p {
 /* main character */
 #mainCharacter {
     width: 32px;
-    height: 64px;
+    height: 32px;
     background-color: rgb(255, 145, 0);
     left: 400px;
     top: 304px;
