@@ -4,7 +4,7 @@
 const gameWindow = document.getElementById("gameWindow");
 // game state
 gameState = {
-    //door2locked  false
+    door2locked: false
 }
 //inventory
 const inventorybox = document.getElementById('inventoryBox');
