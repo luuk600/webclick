@@ -42,7 +42,7 @@ p {
 #door1 {
     width: 64px;
     height: 64px;
-    background-color: #ff0000;
+
     opacity: 0.5;
     top: 65px;
     left: 480px;
@@ -58,7 +58,7 @@ p {
 #key1 {
     width: 32px;
     height: 32px;
-    background-color: #ff0000;
+
     opacity: 0.5;
     top: 81px;
     left: 496px;
@@ -71,6 +71,13 @@ p {
     background-color: #ff0000;
     top: 450px;
     left: 150px;
+}
+
+#statue {
+    width: 32px;
+    height: 64px;
+    top: 283px;
+    right: 64px;
 }
 
 /*inventorybox*/
@@ -88,10 +95,11 @@ p {
 }
 
 /* main character */
+
 #mainCharacter {
     width: 32px;
     height: 32px;
-    background-color: #ff9100;
+
     left: 400px;
     top: 304px;
 }
@@ -114,20 +122,38 @@ p {
     bottom: 0px;
 }
 
-#mainCharacterSpeech {
+/*dailog part*/
+
+#mainCharacterAvatar {
     left: 0px;
     bottom: 0px;
-    background-color: red;
-    width: 100px;
-    height: 100px;
+    width: 72px;
+    height: 68px;
+}
+
+#mainCharacterSpeech {
+    left: 72px;
+    top: 0px;
+}
+
+#counterAvatar {
+    right: 0px;
+    bottom: 0px;
+    width: 144px;
+    height: 136px;
+    opacity: 0;
 }
 
 #counterSpeech {
-    right: 0px;
-    bottom: 0px;
-    background-color: red;
-    width: 100px;
-    height: 100px;
+    right: 144px;
+    top: 0px;
+
+}
+
+#portairStatue {
+    width: 144px;
+    height: 136px;
+
 }
 
 #tilemap {
@@ -153,4 +179,15 @@ p {
 .background {
     position: absolute;
     z-index: 0;
+}
+
+.speech-bubble {
+    background-color: #ffffff;
+    border-radius: 60px;
+    color: #000000;
+    padding: 5px 20px 5px 20px;
+    font: 12px;
+    max-width: 300px;
+    opacity: 0;
+    transition: all 0.8s ease-in-out;
 }

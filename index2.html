@@ -20,9 +20,15 @@
     <div id="gameWindow">
         <div id="dialogBar" class="foreground">
             <div id="setMainDialog">
-                <div id="mainCharacterSpeech" class="foreground"></div>
+                <div id="mainCharacterAvatar" class="foreground">
+                    <img src="assets/img/character/portairt.png" alt="The main character avatar">
+                </div>
+                <div id="mainCharacterSpeech" class="foreground speech-bubble">...</div>
+                <div id="counterAvatar" class="foreground">
+                    <img src="assets/img/textures/portairStatue.png" id="portairStatue" alt="counterAvatar">
+                </div>
 
-                <div id="counterSpeech" class="foreground"></div>
+                <div id="counterSpeech" class="foreground speech-bubble">...</div>
                 <div id="brownBar"></div>
             </div>
 
@@ -37,21 +43,19 @@
         <div id="door1" class="foreground"></div>
         <div id="door2" class="foreground"></div>
         <div id="sign" class="foreground"></div>
+        <div id="statue" class="foreground"></div>
         <!--maincharacter-->
         <div id="mainCharacter" class="heroCharacter">
-
+            <img src="assets/img/character/animated-character-1-idle.gif" id="mcImage" draggable="false"
+                alt="maincharacter puppet">
         </div>
         <!--background-->
         <div id="tilemap" class="background">
             <img src="assets/img/background/tilemap1.jpg" draggable="false" alt="tilemap level 1">
         </div>
 
-
-
-
-
-
     </div>
+
     <script src="javascript/main.js"></script>
 </body>
 
