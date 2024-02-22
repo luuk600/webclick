@@ -18,6 +18,9 @@ const counterAvatar = document.getElementById("counterAvatar")
 //speech bubbels
 const mainCharacterSpeech = document.getElementById("mainCharacterSpeech")
 const counterSpeech = document.getElementById("counterSpeech")
+
+const mcAudio = document.getElementById("mcAudio");
+const cAudio = document.getElementById("cAudio");
 //Inventory
 const inventoryBox = document.getElementById("inventoryBox"); //div
 const inventoryList = document.getElementById("inventoryList"); //ul
@@ -75,10 +78,10 @@ gameWindow.onclick = function (e) {
             door1.style.opacity = 0.8;
             break;
         case "statue":
-            showMessage(mainCharacterSpeech, "wow cool statue..");
+            showMessage(mainCharacterSpeech, mcAudio, "wow cool statue..");
             setTimeout(function () { counterAvatar.style.opacity = 1; }, 4 * sec);
-            setTimeout(showMessage, 4 * sec, counterSpeech, "im so sexy");
-            setTimeout(showMessage, 8 * sec, mainCharacterSpeech, "you motherfucker");
+            setTimeout(showMessage, 4 * sec, counterSpeech, cAudio, "im so sexy");
+            setTimeout(showMessage, 8 * sec, mainCharacterSpeech, mcAudio, "you motherfucker");
             setTimeout(function () { counterAvatar.style.opacity = 0; }, 12 * sec);
             break;
 
@@ -87,7 +90,6 @@ gameWindow.onclick = function (e) {
 
         default:
             //explode
-
             door1.style.opacity = 0.8;
             sign.style.opacity = 0.8;
             break;
@@ -96,9 +98,12 @@ gameWindow.onclick = function (e) {
 /**
  * shows message in a speech bubble
  * @param {getElementById} targetBalloon
+ * @param {getElementById} targetSound
  * @param {string} message 
  */
-function showMessage(targetBalloon, message) {
+function showMessage(targetBalloon, targetSound, message) {
+    targetSound.currentTime = 0;
+    targetSound.play();
     targetBalloon.style.opacity = "1";
     targetBalloon.innerText = message;
     setTimeout(hideMessage, 4 * sec, targetBalloon);
@@ -112,7 +117,9 @@ function showMessage(targetBalloon, message) {
 /**
  * set opacity to 0
  * @param {getElementById} targetBalloon 
+ * @param {getElementById} targetSound
  */
-function hideMessage(targetBalloon) {
+function hideMessage(targetBalloon, targetSound) {
     targetBalloon.style.opacity = "0";
+    targetSound.Pause();
 }
