@@ -47,8 +47,7 @@ gameWindow.onclick = function (e) {
     switch (e.target.id) {
         case "door1":
 
-            door1.style.opacity = 0.5;
-            sign.style.opacity = 0.8;
+
             if (document.getElementById("key1") !== null) {
                 console.log('Key picked up');
                 document.getElementById("key1").remove();
@@ -73,10 +72,6 @@ gameWindow.onclick = function (e) {
             }
 
             break;
-        case "sign":
-            sign.style.opacity = 0.5;
-            door1.style.opacity = 0.8;
-            break;
         case "statue":
             showMessage(mainCharacterSpeech, mcAudio, "wow cool statue..");
             setTimeout(function () { counterAvatar.style.opacity = 1; }, 4 * sec);
@@ -90,8 +85,7 @@ gameWindow.onclick = function (e) {
 
         default:
             //explode
-            door1.style.opacity = 0.8;
-            sign.style.opacity = 0.8;
+
             break;
     }
 }

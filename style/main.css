@@ -71,6 +71,7 @@ p {
     background-color: #ff0000;
     top: 450px;
     left: 150px;
+    opacity: 0;
 }
 
 #statue {
@@ -148,13 +149,11 @@ p {
 #counterSpeech {
     right: 144px;
     top: 0px;
-
 }
 
 #portairStatue {
     width: 144px;
     height: 136px;
-
 }
 
 #tilemap {
@@ -167,8 +166,6 @@ p {
 .foreground {
     position: absolute;
     z-index: 1000;
-
-
 }
 
 .heroCharacter {
