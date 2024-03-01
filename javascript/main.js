@@ -7,6 +7,8 @@ gameState = {
     door2locked: true
 }
 
+
+
 const sec = 1000;
 //Main Character
 const mainCharacter = document.getElementById("mainCharacter");
