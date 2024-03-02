@@ -27,6 +27,7 @@ p {
     font-weight: 400;
     font-style: normal;
     font-size: 450%;
+    color: darkblue;
 }
 
 #gameWindow {
@@ -55,6 +56,27 @@ p {
     left: 171px;
 }
 
+#house1 {
+    top: 200px;
+    left: 170px;
+    width: 70px;
+    height: 55px;
+}
+
+#house2 {
+    top: 200px;
+    right: 170px;
+    width: 70px;
+    height: 55px;
+}
+
+#thehouse {
+    top: 0;
+    right: 0px;
+    width: 160px;
+    height: 130px;
+}
+
 #key1 {
     width: 32px;
     height: 32px;
@@ -74,11 +96,12 @@ p {
     opacity: 0;
 }
 
-#statue {
+#statue1 {
     width: 32px;
-    height: 64px;
-    top: 283px;
-    right: 64px;
+    height: 50px;
+
+    top: 238px;
+    right: 0px;
 }
 
 /*inventorybox*/
@@ -128,8 +151,8 @@ p {
 #mainCharacterAvatar {
     left: 0px;
     bottom: 0px;
-    width: 72px;
-    height: 68px;
+    width: 64px;
+    height: 64px;
 }
 
 #mainCharacterSpeech {
@@ -140,8 +163,8 @@ p {
 #counterAvatar {
     right: 0px;
     bottom: 0px;
-    width: 144px;
-    height: 136px;
+    width: 64px;
+    height: 128px;
     opacity: 0;
     transition: all 1s ease-in-out;
 }
@@ -152,8 +175,13 @@ p {
 }
 
 #portairStatue {
-    width: 144px;
-    height: 136px;
+    width: 64px;
+    height: 128px;
+}
+
+#mcportrait {
+    width: 64px;
+    height: 64px;
 }
 
 #tilemap {

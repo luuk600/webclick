@@ -74,7 +74,7 @@ gameWindow.onclick = function (e) {
             }
 
             break;
-        case "statue":
+        case "statue1":
             showMessage(mainCharacterSpeech, mcAudio, "wow cool statue..");
             setTimeout(function () { counterAvatar.style.opacity = 1; }, 4 * sec);
             setTimeout(showMessage, 4 * sec, counterSpeech, cAudio, "im so sexy");
