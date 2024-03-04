@@ -1,10 +1,10 @@
-//document.getElementById("mainTitle").innerText = "hello world";
+document.getElementById("mainTitle").innerText = "Point and click adventure";
 
 // gameWindow reference 
 const gameWindow = document.getElementById("gameWindow");
 // game state
 gameState = {
-    door2locked: true
+    house1locked: true
 }
 
 
@@ -13,7 +13,9 @@ const sec = 1000;
 //Main Character
 const mainCharacter = document.getElementById("mainCharacter");
 const offsetCharacter = 16;
-
+// backgrounds
+const tilemap = document.getElementById('tilemap');
+const house1 = document.getElementById('house1img');
 //statue
 const counterAvatar = document.getElementById("counterAvatar")
 
@@ -28,7 +30,7 @@ const inventoryBox = document.getElementById("inventoryBox"); //div
 const inventoryList = document.getElementById("inventoryList"); //ul
 
 //Foreground Items
-const door1 = document.getElementById("door1");
+
 const sign = document.getElementById("sign");
 
 
@@ -47,9 +49,7 @@ gameWindow.onclick = function (e) {
     mainCharacter.style.top = y - offsetCharacter + "px";
 
     switch (e.target.id) {
-        case "door1":
-
-
+        case "key1":
             if (document.getElementById("key1") !== null) {
                 console.log('Key picked up');
                 document.getElementById("key1").remove();
@@ -57,29 +57,43 @@ gameWindow.onclick = function (e) {
                 const keyElement = document.createElement("li");
                 keyElement.innerText = "Key"
                 inventoryList.appendChild(keyElement);
-                keyElement.id = "inv-key";
+                keyElement.id = "inv-keyhouse1";
             }
             break;
-        case "door2":
-            if (gameState.door2locked == true) {
-                if (document.getElementById("inv-key") !== null) {
-
-                    gameState.door2locked = false;
-                    document.getElementById("inv-key").remove();
+        case "house1":
+            if (gameState.house1locked == true) {
+                if (document.getElementById("inv-keyhouse1") !== null) {
+                    alert("door is unlocked");
+                    gameState.house1locked = false;
+                    document.getElementById("inv-keyhouse1").remove()
                 } else {
                     alert("door is locked")
                 }
             } else {
                 console.log("enter the building");
+                tilemap.style.opacity = 0;
+                house1img.style.opacity = 1;
             }
-
             break;
         case "statue1":
-            showMessage(mainCharacterSpeech, mcAudio, "wow cool statue..");
+            showMessage(mainCharacterSpeech, mcAudio, "Wow cool watchtower..");
             setTimeout(function () { counterAvatar.style.opacity = 1; }, 4 * sec);
-            setTimeout(showMessage, 4 * sec, counterSpeech, cAudio, "im so sexy");
-            setTimeout(showMessage, 8 * sec, mainCharacterSpeech, mcAudio, "you motherfucker");
-            setTimeout(function () { counterAvatar.style.opacity = 0; }, 12 * sec);
+            setTimeout(showMessage, 4 * sec, counterSpeech, cAudio, "Hello young man");
+            setTimeout(showMessage, 8 * sec, mainCharacterSpeech, mcAudio, "You can talk?");
+            setTimeout(showMessage, 12 * sec, counterSpeech, cAudio, "O yes yes longer than you are alive");
+            setTimeout(showMessage, 16 * sec, mainCharacterSpeech, mcAudio, "I was wondering if you could help me.");
+            setTimeout(showMessage, 20 * sec, counterSpeech, cAudio, "With what exactly?");
+            setTimeout(showMessage, 24 * sec, mainCharacterSpeech, mcAudio, "I want to enter that house surounded by a wall with a gate.");
+            setTimeout(showMessage, 28 * sec, counterSpeech, cAudio, "Nobody has been in that house for the past years");
+            setTimeout(showMessage, 32 * sec, mainCharacterSpeech, mcAudio, "Thats why I want to enter it I would love to be the first one in a very long time.");
+            setTimeout(showMessage, 36 * sec, counterSpeech, cAudio, "For that you need to have the golden key hidden in chest.");
+            setTimeout(showMessage, 40 * sec, mainCharacterSpeech, mcAudio, "And where might that chest be?");
+            setTimeout(showMessage, 44 * sec, counterSpeech, cAudio, "In one of the two houses over there.");
+            setTimeout(showMessage, 48 * sec, counterSpeech, cAudio, "but to enter those you would need a key.");
+            setTimeout(showMessage, 52 * sec, mainCharacterSpeech, mcAudio, "Do you know where I can find that key?");
+            setTimeout(showMessage, 56 * sec, counterSpeech, cAudio, "If I'm correct in one of the other watchtowers but be awere some are not as nice as me.");
+            setTimeout(showMessage, 60 * sec, mainCharacterSpeech, mcAudio, "Thank you for your help I will appreciate that for a long time.");
+            setTimeout(function () { counterAvatar.style.opacity = 0; }, 60 * sec);
             break;
 
 
@@ -87,7 +101,8 @@ gameWindow.onclick = function (e) {
 
         default:
             //explode
-
+            tilemap.style.opacity = 1;
+            house1img.style.opacity = 0;
             break;
     }
 }

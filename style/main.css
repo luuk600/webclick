@@ -36,31 +36,17 @@ p {
     height: 608px;
     grid-column-start: 2;
     grid-row-start: 2;
-    background-color: #00ffff;
+    background-color: #000000;
 }
 
 /*foreground*/
-#door1 {
-    width: 64px;
-    height: 64px;
-
-    opacity: 0.5;
-    top: 65px;
-    left: 480px;
-}
-
-#door2 {
-    width: 44px;
-    height: 64px;
-    top: 294px;
-    left: 171px;
-}
 
 #house1 {
     top: 200px;
     left: 170px;
     width: 70px;
     height: 55px;
+
 }
 
 #house2 {
@@ -80,10 +66,10 @@ p {
 #key1 {
     width: 32px;
     height: 32px;
-
     opacity: 0.5;
-    top: 81px;
-    left: 496px;
+    bottom: 20px;
+    Right: 0px;
+    background-color: #00ffff;
 }
 
 
@@ -102,6 +88,14 @@ p {
 
     top: 238px;
     right: 0px;
+}
+
+#chest1 {
+    width: 32px;
+    height: 32px;
+    background-color: #ff0000;
+    top: 290px;
+    right: 385px;
 }
 
 /*inventorybox*/
@@ -188,6 +182,21 @@ p {
     width: 800px;
     height: 608px;
     top: 0px;
+    opacity: 0;
+}
+
+#house1img {
+    opacity: 1;
+    width: auto;
+    height: auto;
+    margin: 192px 288px;
+}
+
+#house1imgopen {
+    opacity: 0;
+    width: auto;
+    height: auto;
+    margin: 192px 288px;
 }
 
 /* classes */
