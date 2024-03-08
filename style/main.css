@@ -181,6 +181,7 @@ p {
     height: 64px;
 }
 
+/* maps */
 #tilemap {
     width: 800px;
     height: 608px;
@@ -201,6 +202,13 @@ p {
     width: auto;
     height: auto;
     margin: -433px 288px;
+}
+
+#thehouseimg {
+    opacity: 0;
+    width: auto;
+    height: auto;
+    margin: 192px 288px;
 }
 
 /* classes */

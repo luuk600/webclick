@@ -4,7 +4,10 @@ document.getElementById("mainTitle").innerText = "Point and click adventure";
 const gameWindow = document.getElementById("gameWindow");
 // game state
 gameState = {
-    house1locked: true
+    house1locked: true,
+    gateopened: false,
+    houseopened: false
+
 }
 
 
@@ -17,6 +20,7 @@ const offsetCharacter = 16;
 const tilemap = document.getElementById('tilemap');
 const house1 = document.getElementById('house1img');
 const house1o = document.getElementById("house1imgopen")
+const thehouseimg = document.getElementById("thehouseimg");
 //statue
 const counterAvatar = document.getElementById("counterAvatar");
 
@@ -34,6 +38,10 @@ const inventoryList = document.getElementById("inventoryList"); //ul
 const chest1 = document.getElementById('chest1');
 let isChes1Opened = false;
 const sign = document.getElementById("sign");
+
+let gateopend = false;
+let houseopend = false;
+let works = false
 
 
 gameWindow.onclick = function (e) {
@@ -62,6 +70,39 @@ gameWindow.onclick = function (e) {
                 keyElement.id = "inv-keyhouse1";
             }
             break;
+        case "key2":
+            if (document.getElementById("key2") !== null) {
+                console.log('Key picked up');
+                document.getElementById("key2").remove();
+                const key2Element = document.createElement("li");
+                key2Element.innerText = "Key TheHouse"
+                inventoryList.appendChild(key2Element);
+                key2Element.id = "inv-keythehouse";
+            }
+            break;
+        case "thehouse":
+            if (document.getElementById("inv-keythehouse") !== null) {
+                document.getElementById("inv-keythehouse").remove()
+                houseopened = true;
+            }
+            if (document.getElementById("inv-keygate") !== null) {
+                document.getElementById("inv-keygate").remove()
+                gateopened = true;
+            }
+            if (gateopened && houseopened) {
+                thehouseimg.style.opacity = 1;
+                tilemap.style.opacity = 0;
+                house1img.style.opacity = 0;
+                house1o.style.opacity = 0;
+                alert("you have won congrats");
+                document.getElementById("mainTitle").innerText = "You Won";
+                setTimeout(function () {
+                    location.reload();
+                }, 3000);
+
+            }
+
+            break;
         case "house1":
 
             if (gameState.house1locked == true) {
@@ -69,7 +110,7 @@ gameWindow.onclick = function (e) {
                     alert("door is unlocked");
                     gameState.house1locked = false;
                     document.getElementById("inv-keyhouse1").remove()
-
+                    let works = true;
                 } else {
                     alert("door is locked")
                 }
@@ -95,16 +136,23 @@ gameWindow.onclick = function (e) {
 
             break;
         case "stfuDuke":
-            console.log('Keygate picked up');
-            document.getElementById("chest1").remove();
-            const key1Element = document.createElement("li");
-            key1Element.innerText = "Key for something"
-            inventoryList.appendChild(key1Element);
-            key1Element.id = "inv-keygate";
-            isChes1Opened = true;
-            tilemap.style.opacity = 0;
-            house1img.style.opacity = 0;
-            house1o.style.opacity = 1;
+
+
+            if (gameState.house1locked === false) {
+                console.log('Keygate picked up');
+                document.getElementById("chest1").remove();
+                const key1Element = document.createElement("li");
+                key1Element.innerText = "Key for something"
+                inventoryList.appendChild(key1Element);
+                key1Element.id = "inv-keygate";
+                isChes1Opened = true;
+                tilemap.style.opacity = 0;
+                house1img.style.opacity = 0;
+                house1o.style.opacity = 1;
+            }
+
+
+
             break;
         case "house2":
             showMessage(mainCharacterSpeech, mcAudio, "What a nicehouse");
@@ -145,6 +193,7 @@ gameWindow.onclick = function (e) {
 
         default:
             //explode
+
             tilemap.style.opacity = 1;
             house1img.style.opacity = 0;
             break;
