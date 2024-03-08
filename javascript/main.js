@@ -16,12 +16,13 @@ const offsetCharacter = 16;
 // backgrounds
 const tilemap = document.getElementById('tilemap');
 const house1 = document.getElementById('house1img');
+const house1o = document.getElementById("house1imgopen")
 //statue
-const counterAvatar = document.getElementById("counterAvatar")
+const counterAvatar = document.getElementById("counterAvatar");
 
 //speech bubbels
-const mainCharacterSpeech = document.getElementById("mainCharacterSpeech")
-const counterSpeech = document.getElementById("counterSpeech")
+const mainCharacterSpeech = document.getElementById("mainCharacterSpeech");
+const counterSpeech = document.getElementById("counterSpeech");
 
 const mcAudio = document.getElementById("mcAudio");
 const cAudio = document.getElementById("cAudio");
@@ -30,7 +31,8 @@ const inventoryBox = document.getElementById("inventoryBox"); //div
 const inventoryList = document.getElementById("inventoryList"); //ul
 
 //Foreground Items
-
+const chest1 = document.getElementById('chest1');
+let isChes1Opened = false;
 const sign = document.getElementById("sign");
 
 
@@ -61,11 +63,13 @@ gameWindow.onclick = function (e) {
             }
             break;
         case "house1":
+
             if (gameState.house1locked == true) {
                 if (document.getElementById("inv-keyhouse1") !== null) {
                     alert("door is unlocked");
                     gameState.house1locked = false;
                     document.getElementById("inv-keyhouse1").remove()
+
                 } else {
                     alert("door is locked")
                 }
@@ -73,7 +77,47 @@ gameWindow.onclick = function (e) {
                 console.log("enter the building");
                 tilemap.style.opacity = 0;
                 house1img.style.opacity = 1;
+                if (isChes1Opened) {
+
+                    tilemap.style.opacity = 0;
+                    house1img.style.opacity = 0;
+                    house1o.style.opacity = 1;
+                } else {
+                    alert("it works");
+                    tilemap.style.opacity = 0;
+                    house1img.style.opacity = 1;
+                }
             }
+
+        case "chest1":
+
+
+
+            break;
+        case "stfuDuke":
+            console.log('Keygate picked up');
+            document.getElementById("chest1").remove();
+            const key1Element = document.createElement("li");
+            key1Element.innerText = "Key for something"
+            inventoryList.appendChild(key1Element);
+            key1Element.id = "inv-keygate";
+            isChes1Opened = true;
+            tilemap.style.opacity = 0;
+            house1img.style.opacity = 0;
+            house1o.style.opacity = 1;
+            break;
+        case "house2":
+            showMessage(mainCharacterSpeech, mcAudio, "What a nicehouse");
+            setTimeout(showMessage, 4 * sec, counterSpeech, cAudio, "Hello");
+            setTimeout(showMessage, 8 * sec, mainCharacterSpeech, mcAudio, "You can talk?");
+            setTimeout(showMessage, 12 * sec, counterSpeech, cAudio, "Ofcouse!");
+            setTimeout(showMessage, 16 * sec, mainCharacterSpeech, mcAudio, "I wanna enter that house with the gate!");
+            setTimeout(showMessage, 20 * sec, counterSpeech, cAudio, "Good for you");
+            setTimeout(showMessage, 24 * sec, mainCharacterSpeech, mcAudio, "Can you help me");
+            setTimeout(showMessage, 28 * sec, counterSpeech, cAudio, "No I am a house i cant walk what did you expect");
+            setTimeout(showMessage, 32 * sec, mainCharacterSpeech, mcAudio, "Ohh yea sorry ");
+            setTimeout(showMessage, 36 * sec, counterSpeech, cAudio, "But i know there is a Key in the forest");
+            setTimeout(showMessage, 40 * sec, mainCharacterSpeech, mcAudio, "Okay thank you");
             break;
         case "statue1":
             showMessage(mainCharacterSpeech, mcAudio, "Wow cool watchtower..");
@@ -106,6 +150,7 @@ gameWindow.onclick = function (e) {
             break;
     }
 }
+
 /**
  * shows message in a speech bubble
  * @param {getElementById} targetBalloon

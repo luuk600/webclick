@@ -69,23 +69,12 @@ p {
     opacity: 0.5;
     bottom: 20px;
     Right: 0px;
-    background-color: #00ffff;
 }
 
-
-#sign {
-    width: 64px;
-    height: 32px;
-    background-color: #ff0000;
-    top: 450px;
-    left: 150px;
-    opacity: 0;
-}
 
 #statue1 {
     width: 32px;
     height: 50px;
-
     top: 238px;
     right: 0px;
 }
@@ -93,9 +82,23 @@ p {
 #chest1 {
     width: 32px;
     height: 32px;
-    background-color: #ff0000;
     top: 290px;
     right: 385px;
+}
+
+#stfuDuke {
+    z-index: 500;
+    width: 244px;
+    height: 244px;
+    top: 182px;
+    right: 278px;
+}
+
+#key2 {
+    width: 16px;
+    height: 16px;
+    top: 5px;
+    left: 600px;
 }
 
 /*inventorybox*/
@@ -182,11 +185,12 @@ p {
     width: 800px;
     height: 608px;
     top: 0px;
-    opacity: 0;
+    opacity: 1;
 }
 
 #house1img {
-    opacity: 1;
+    z-index: 1002;
+    opacity: 0;
     width: auto;
     height: auto;
     margin: 192px 288px;
@@ -196,7 +200,7 @@ p {
     opacity: 0;
     width: auto;
     height: auto;
-    margin: 192px 288px;
+    margin: -433px 288px;
 }
 
 /* classes */
